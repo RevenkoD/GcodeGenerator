@@ -10,7 +10,7 @@ namespace GCodeGeneratorReact.Controllers
 	public class GenerateController : ControllerBase
 	{
 		[HttpPost]
-		public async Task<int> Generate(GeneraterRequestDto dto)
+		public async Task<int> Generate(GeneratorRequestDto dto)
 		{
 			var options = new SaveDialogOptions
 			{
