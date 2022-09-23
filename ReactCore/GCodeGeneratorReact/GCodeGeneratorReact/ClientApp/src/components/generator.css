@@ -1,0 +1,33 @@
+.generator{}
+.generator__loadsave{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 0 0 1rem 0;
+}
+.generator__loadsave .btn,
+.generator__gcode .btn{
+	padding: 1rem 0;
+}
+.generator__gcode{}
+.generator__inputs{
+	display: flex;
+	flex-direction: row;
+	flex-direction: row;
+   align-items: baseline;
+}
+.generator__inputs span{
+	margin-left: 1rem;
+	
+}
+.input-group{
+	width: none;
+}
+
+.generator__radio .form-check-input{
+	margin-right: 1rem;
+}
+.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu){
+	border-top-right-radius: none; 
+   border-bottom-right-radius: none;
+}
