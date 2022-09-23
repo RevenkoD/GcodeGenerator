@@ -1,69 +1,83 @@
-.generator{}
-.generator__loadsave{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	margin: 0 0 1rem 0;
+.generator__loadsave {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 0 1rem 0;
+}
+.generator__loadsave .btn-secondary {
+  background-color: #6608ffcb;
+  border: none;
 }
 .generator__loadsave .btn,
-.generator__gcode .btn{
-	padding: 0.5rem 0;
+.generator__gcode .btn {
+  padding: 0.5rem 0;
 }
-.generator__gcode{
-	margin-bottom: 2rem;
-}
-
-.generator__body{
-	display: flex;
-	flex-direction: row;
+.generator__gcode {
+  margin-bottom: 2rem;
 }
 
-.generator__inputs{
-	display: flex;
-	flex-direction: row;
-   align-items: center;
-	font-size: 1rem;
+.generator__body {
+  display: flex;
+  flex-direction: row;
 }
-.generator__inputs .input-group{
-	flex: 1 1 60%;
-	display: flex;
-	flex-direction: row;
+
+.generator__inputs {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 1rem;
 }
-.generator__inputs-name{
-	flex: 1 1 40%;
-	padding-left: 1rem;
+.generator__inputs .input-group {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: row;
 }
-.input-group-text{
-	font-size: 0.9rem;
+.generator__inputs-name {
+  flex: 1 1 40%;
+  padding-left: 1rem;
 }
-.form-control:focus{
-	box-shadow: none;
+.input-group-text {
+  font-size: 0.9rem;
+}
+.form-control:focus {
+  box-shadow: none;
 }
 .form-control {
-	padding: 0.275rem 0.5rem;
-	font-size: 0.9rem;
-	color: #212529b3;
+  padding: 0.275rem 0.5rem;
+  font-size: 0.9rem;
+  color: #212529b3;
 }
 
-.generator__radio .input-group{
-	align-items: baseline;
+.generator__body-imgs {
+  opacity: 0;
 }
-.generator__radio-inputs{
-	flex: 1 1 60%;
+
+.generator__radio .input-group {
+  align-items: baseline;
 }
-.generator__radio .input-group >.input-group-text{
-	background-color: #fff;
-	border: none;
-	flex: 1 1 40%;
+.generator__radio-inputs {
+  flex: 1 1 60%;
 }
-.generator__radio .form-check-input{
-	margin-right: 1rem;
+.generator__radio .input-group > .input-group-text {
+  background-color: #fff;
+  border: none;
+  flex: 1 1 40%;
 }
-.generator__radio .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu){
-	border-top-right-radius: 8px; 
-   border-bottom-right-radius: 8px;
+.generator__radio .form-check-input {
+  margin-right: 1rem;
 }
-.generator__radio-inputs{
-	display: flex;
-	flex-direction: row;
+.generator__radio
+  .input-group:not(.has-validation)
+  > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.generator__radio-inputs {
+  display: flex;
+  flex-direction: row;
+}
+.generator__radio
+  .input-group
+  > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+  margin: 0px;
 }

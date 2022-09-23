@@ -52,8 +52,8 @@ namespace GCodeGeneratorReact.Controllers
 			{
 				Title = "Save G-code",
 				Filters = new FileFilter[]{
-					new FileFilter { Name = "G-codes", Extensions = new string[] {"gcode", "txt"} }
-				}
+					new FileFilter { Name = "Preset", Extensions = new string[] {"gcode-preset"} }
+				},
 			};
 			try
 			{
