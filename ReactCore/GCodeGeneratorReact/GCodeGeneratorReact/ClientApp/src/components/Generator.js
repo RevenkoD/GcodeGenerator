@@ -12,8 +12,6 @@ export class Generator extends Component {
       countOfExtraLoop: 0,
       countOfLoops: 0,
       countOfFullLoops: 0,
-      preScript: 'G21\nG91\n',
-      postScript: '',
       useLoops: 0,
     }
   }
