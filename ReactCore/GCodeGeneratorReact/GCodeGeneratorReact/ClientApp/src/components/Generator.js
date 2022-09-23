@@ -53,7 +53,7 @@ export class Generator extends Component {
 					</button>
 				</div>
 				<div className='generator__body'>
-					<div className='generator__body-inputs col-6'>
+					<div className='generator__body-inputs col-7'>
 						<div className='generator__inputs  mb-3 '>
 							<div className="input-group">
 								<input
@@ -138,49 +138,53 @@ export class Generator extends Component {
 
 						<div className='generator__radio mb-3'>
 							<div className="input-group">
-								<input
-									class="form-check-input"
-									type="radio"
-									name="useLoops"
-									value={1}
-									checked={this.state.useLoops == 1}
-									onChange={this.handleInputChange}
-								/>
+								<div className='generator__radio-inputs'>
+									<input
+										class="form-check-input"
+										type="radio"
+										name="useLoops"
+										value={1}
+										checked={this.state.useLoops == 1}
+										onChange={this.handleInputChange}
+									/>
+									<input
+										disabled={this.state.useLoops == 0}
+										onChange={this.handleInputChange}
+										type="number"
+										name="countOfLoops"
+										value={this.state.countOfLoops}
+										className="form-control generator__radio-inp"
+									/>
+								</div>
 								<span className="input-group-text">Count of loops</span>
-								<input
-									disabled={this.state.useLoops == 0}
-									onChange={this.handleInputChange}
-									type="number"
-									name="countOfLoops"
-									value={this.state.countOfLoops}
-									className="form-control"
-								/>
 							</div>
 						</div>
 
 						<div className='generator__radio mb-3'>
 							<div className="input-group">
-								<input
-									class="form-check-input"
-									type="radio"
-									name="useLoops"
-									value={0}
-									onChange={this.handleInputChange}
-									checked={this.state.useLoops == 0}
-								/>
+								<div className='generator__radio-inputs'>
+									<input
+										class="form-check-input"
+										type="radio"
+										name="useLoops"
+										value={0}
+										onChange={this.handleInputChange}
+										checked={this.state.useLoops == 0}
+									/>
+									<input
+										disabled={this.state.useLoops != 0}
+										onChange={this.handleInputChange}
+										type="number"
+										name="countOfFullLoops"
+										value={this.state.countOfFullLoops}
+										className="form-control"
+									/>
+								</div>
 								<span className="input-group-text">Count of full loops</span>
-								<input
-									disabled={this.state.useLoops != 0}
-									onChange={this.handleInputChange}
-									type="number"
-									name="countOfFullLoops"
-									value={this.state.countOfFullLoops}
-									className="form-control"
-								/>
 							</div>
 						</div>
 					</div>
-					<div className='generator__body-imgs col-6'>
+					<div className='generator__body-imgs col-5'>
 						<img src={image}></img>
 					</div>
 				</div>
