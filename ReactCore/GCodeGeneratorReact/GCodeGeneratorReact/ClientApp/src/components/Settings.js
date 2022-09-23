@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
+import Toast from 'react-bootstrap/Toast'
 
 export class Settings extends Component {
-  static displayName = Settings.name
-
   constructor(props) {
     super(props)
     this.state = {
@@ -12,6 +11,8 @@ export class Settings extends Component {
       stepsPermm: 0,
       xInversion: false,
       yInversion: false,
+      isChanged: false, // not server model
+      showSavedToast: false, // not server model
     }
   }
 
@@ -19,7 +20,17 @@ export class Settings extends Component {
     this.populateData()
   }
 
-  handleSave = async () => {}
+  handleSave = async () => {
+    const rawResponse = await fetch('api/settings', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(this.state),
+    })
+    this.setState({ isChanged: false, showSavedToast: true })
+  }
 
   handleInputChange = (event) => {
     const target = event.target
@@ -27,6 +38,7 @@ export class Settings extends Component {
     const name = target.name
     this.setState({
       [name]: value,
+      isChanged: true,
     })
   }
 
@@ -102,9 +114,22 @@ export class Settings extends Component {
           type="button"
           onClick={this.handleSave}
           className="btn btn-success"
+          disabled={!this.state.isChanged}
         >
           Save settings
         </button>
+
+        <Toast
+          onClose={() => this.setState({ showSavedToast: false })}
+          show={this.state.showSavedToast}
+          delay={3000}
+          autohide
+        >
+          <Toast.Header>
+            <strong className="me-auto">Generator</strong>
+          </Toast.Header>
+          <Toast.Body>Settings saved</Toast.Body>
+        </Toast>
       </div>
     )
   }

@@ -1,4 +1,5 @@
 ﻿using GCodeGeneratorReact.Dtos;
+using GCodeGeneratorReact.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GCodeGeneratorReact.Controllers
@@ -7,10 +8,23 @@ namespace GCodeGeneratorReact.Controllers
 	[ApiController]
 	public class SettingsController : ControllerBase
 	{
-		[HttpGet]
-		public SettingsDto Get()
+		private readonly ISettingService _settingService;
+
+		public SettingsController(ISettingService settingService)
 		{
-			return new SettingsDto { YInversion = true };
+			_settingService = settingService;
+		}
+
+		[HttpGet]
+		public async Task<SettingsDto> Get()
+		{
+			return await _settingService.GetCurrentSettings();
+		}
+
+		[HttpPost]
+		public async Task<SettingsDto> Save(SettingsDto dto)
+		{
+			return await _settingService.SetSettings(dto);
 		}
 	}
 }

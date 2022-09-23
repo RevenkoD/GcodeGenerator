@@ -1,13 +1,23 @@
 ﻿using GCodeGeneratorReact.Dtos;
+using GCodeGeneratorReact.Interfaces;
 
 namespace GCodeGeneratorReact.Services
 {
 	public class GCodeService
 	{
+
 		private const string MandatoryPreScript = "G91\n";
-		public async Task<int> GenerateGcode(GeneratorRequestDto dto, SettingsDto settings, string filePath)
+		private readonly ISettingService _settingService;
+
+		public GCodeService(ISettingService settingService)
+		{
+			_settingService = settingService;
+		}
+
+		public async Task<int> GenerateGcode(GeneratorRequestDto dto, string filePath)
 		{
 			var lineCount = 1;
+			var settings = await _settingService.GetCurrentSettings();
 
 			var s = Math.PI * dto.Diameter * Math.Tan((Math.PI / 180) * dto.Angle); // x move for one turn
 			var rotation = dto.Length * settings.FullRoundSteps / s;
@@ -36,6 +46,7 @@ namespace GCodeGeneratorReact.Services
 				await file.WriteLineAsync($"G01 Y-{2 * settings.FullRoundSteps:.3f} F{Fy:.3f}");
 				await file.WriteLineAsync($"G01 X-{dto.Length} Y-{rotation:.3f} F{F_forMove:.3f}");
 				await file.WriteLineAsync($"G01 Y-{(((2 * 360 + addition * 360 + angleAddition) * settings.FullRoundSteps) / 360):.3f} F{Fy:.3f}");
+				lineCount += 4;
 			}
 
 			await file.WriteLineAsync(settings.PostScript);

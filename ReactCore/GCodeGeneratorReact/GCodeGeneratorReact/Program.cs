@@ -1,10 +1,13 @@
 using ElectronNET.API;
 using ElectronNET.API.Entities;
+using GCodeGeneratorReact.Interfaces;
+using GCodeGeneratorReact.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
+builder.Services.AddSingleton<ISettingService, SettingService>();
+builder.Services.AddTransient<GCodeService>();
 builder.Services.AddControllersWithViews();
 builder.WebHost.UseElectron(args);
 
