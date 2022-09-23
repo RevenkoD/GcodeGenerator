@@ -1,0 +1,39 @@
+.settings{
+	display: flex;
+	flex-direction: column;
+}
+.settings__textarea{
+	display: flex;
+	flex-direction: row;
+	margin: 0 -0.5rem;
+}
+.settings__textarea .form-group{
+	padding: 0 0.5rem;
+}
+.settings__textarea .form-group{
+	text-transform: uppercase;
+}
+.settings__inputs{
+	display: flex;
+	flex-direction: row;
+}
+
+.settings__inputs-name{
+	padding-left: 1rem;
+	flex: 1 1 56%;
+}
+.settings__toast{
+	padding-right: 0.5rem;
+	padding-bottom: 0.5rem;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+.toast{
+	background-color: #198754;
+	color: #fff;
+}
+.toast-header{
+	background-color: rgba(20, 47, 20, 0.493);
+	color: #fff;
+}
