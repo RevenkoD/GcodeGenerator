@@ -51,132 +51,136 @@ export class Generator extends Component {
 						Save preset
 					</button>
 				</div>
-				<div className='generator__inputs col-6'>
-					<div className="input-group mb-3">
-						<input
-							onChange={this.handleInputChange}
-							type="number"
-							name="length"
-							value={this.state.length}
-							className="form-control"
-						/>
-						<span className="input-group-text">mm</span>
-					</div>
-					<span className="">Length</span>
-				</div>
-				<div className='generator__inputs col-6'>
-					<div className="input-group mb-3">
-						<input
-							onChange={this.handleInputChange}
-							type="number"
-							name="diameter"
-							value={this.state.diameter}
-							className="form-control"
-						/>
-						<span className="input-group-text">mm</span>
-					</div>
-					<span className="">Diameter</span>
-				</div>
+				<div className='generator__body'>
+					<div className='generator__body-inputs col-6'>
+						<div className='generator__inputs col-6'>
+							<div className="input-group mb-3">
+								<input
+									onChange={this.handleInputChange}
+									type="number"
+									name="length"
+									value={this.state.length}
+									className="form-control"
+								/>
+								<span className="input-group-text">mm</span>
+							</div>
+							<span className="">Length</span>
+						</div>
+						<div className='generator__inputs col-6'>
+							<div className="input-group mb-3">
+								<input
+									onChange={this.handleInputChange}
+									type="number"
+									name="diameter"
+									value={this.state.diameter}
+									className="form-control"
+								/>
+								<span className="input-group-text">mm</span>
+							</div>
+							<span className="">Diameter</span>
+						</div>
 
-				<div className='generator__inputs col-6'>
-					<div className="input-group mb-3">
-						<input
-							onChange={this.handleInputChange}
-							type="number"
-							name="angle"
-							value={this.state.angle}
-							className="form-control"
-						/>
-						<span className="input-group-text">deg</span>
-					</div>
-					<span className="">Angle</span>
-				</div>
+						<div className='generator__inputs col-6'>
+							<div className="input-group mb-3">
+								<input
+									onChange={this.handleInputChange}
+									type="number"
+									name="angle"
+									value={this.state.angle}
+									className="form-control"
+								/>
+								<span className="input-group-text">deg</span>
+							</div>
+							<span className="">Angle</span>
+						</div>
 
-				<div className='generator__inputs col-6'>
-					<div className="input-group mb-3">
-						<input
-							onChange={this.handleInputChange}
-							type="number"
-							name="speedOfFiber"
-							value={this.state.speedOfFiber}
-							className="form-control"
-						/>
-						<span className="input-group-text">mm/min</span>
-					</div>
-					<span className="">Speed&nbsp;of&nbsp;fiber</span>
-				</div>
+						<div className='generator__inputs col-6'>
+							<div className="input-group mb-3">
+								<input
+									onChange={this.handleInputChange}
+									type="number"
+									name="speedOfFiber"
+									value={this.state.speedOfFiber}
+									className="form-control"
+								/>
+								<span className="input-group-text">mm/min</span>
+							</div>
+							<span className="">Speed&nbsp;of&nbsp;fiber</span>
+						</div>
 
-				<div className='generator__inputs col-6'>
-					<div className="input-group mb-3">
-						<input
-							onChange={this.handleInputChange}
-							type="number"
-							name="fiberWidth"
-							value={this.state.fiberWidth}
-							className="form-control"
-						/>
-						<span className="input-group-text">mm</span>
-					</div>
-					<span className="">Fiber&nbsp;width</span>
-				</div>
+						<div className='generator__inputs col-6'>
+							<div className="input-group mb-3">
+								<input
+									onChange={this.handleInputChange}
+									type="number"
+									name="fiberWidth"
+									value={this.state.fiberWidth}
+									className="form-control"
+								/>
+								<span className="input-group-text">mm</span>
+							</div>
+							<span className="">Fiber&nbsp;width</span>
+						</div>
 
-				<div className='generator__inputs col-6'>
-					<div className="input-group mb-3">
-						<input
-							onChange={this.handleInputChange}
-							type="number"
-							name="countOfExtraLoop"
-							value={this.state.countOfExtraLoop}
-							className="form-control"
-						/>
-					</div>
-					<span className="">CountOfExtraLoops</span>
-				</div>
+						<div className='generator__inputs col-6'>
+							<div className="input-group mb-3">
+								<input
+									onChange={this.handleInputChange}
+									type="number"
+									name="countOfExtraLoop"
+									value={this.state.countOfExtraLoop}
+									className="form-control"
+								/>
+							</div>
+							<span className="">CountOfExtraLoops</span>
+						</div>
 
-				<div className='generator__radio col-6'>
-					<div className="input-group mb-3">
-						<input
-							class="form-check-input"
-							type="radio"
-							name="useLoops"
-							value={1}
-							checked={this.state.useLoops == 1}
-							onChange={this.handleInputChange}
-						/>
-						<span className="input-group-text">Count of loops</span>
-						<input
-							disabled={this.state.useLoops == 0}
-							onChange={this.handleInputChange}
-							type="number"
-							name="countOfLoops"
-							value={this.state.countOfLoops}
-							className="form-control"
-						/>
-					</div>
-				</div>
+						<div className='generator__radio col-6'>
+							<div className="input-group mb-3">
+								<input
+									class="form-check-input"
+									type="radio"
+									name="useLoops"
+									value={1}
+									checked={this.state.useLoops == 1}
+									onChange={this.handleInputChange}
+								/>
+								<span className="input-group-text">Count of loops</span>
+								<input
+									disabled={this.state.useLoops == 0}
+									onChange={this.handleInputChange}
+									type="number"
+									name="countOfLoops"
+									value={this.state.countOfLoops}
+									className="form-control"
+								/>
+							</div>
+						</div>
 
-				<div className='generator__radio col-6'>
-					<div className="input-group mb-3">
-						<input
-							class="form-check-input"
-							type="radio"
-							name="useLoops"
-							value={0}
-							onChange={this.handleInputChange}
-							checked={this.state.useLoops == 0}
-						/>
-						<span className="input-group-text">Count of full loops</span>
-						<input
-							disabled={this.state.useLoops != 0}
-							onChange={this.handleInputChange}
-							type="number"
-							name="countOfFullLoops"
-							value={this.state.countOfFullLoops}
-							className="form-control"
-						/>
+						<div className='generator__radio col-6'>
+							<div className="input-group mb-3">
+								<input
+									class="form-check-input"
+									type="radio"
+									name="useLoops"
+									value={0}
+									onChange={this.handleInputChange}
+									checked={this.state.useLoops == 0}
+								/>
+								<span className="input-group-text">Count of full loops</span>
+								<input
+									disabled={this.state.useLoops != 0}
+									onChange={this.handleInputChange}
+									type="number"
+									name="countOfFullLoops"
+									value={this.state.countOfFullLoops}
+									className="form-control"
+								/>
+							</div>
+						</div>
 					</div>
+					<div className='generator__body-imgs col-6'></div>
 				</div>
-
 
 				<div className='generator__gcode'>
 					<button

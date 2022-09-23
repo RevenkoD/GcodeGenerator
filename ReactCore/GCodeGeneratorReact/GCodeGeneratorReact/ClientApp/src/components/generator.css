@@ -7,7 +7,7 @@
 }
 .generator__loadsave .btn,
 .generator__gcode .btn{
-	padding: 1rem 0;
+	padding: 0.5rem 0;
 }
 .generator__gcode{}
 .generator__inputs{
@@ -30,4 +30,9 @@
 .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu){
 	border-top-right-radius: none; 
    border-bottom-right-radius: none;
+}
+
+.generator__body{
+	display: flex;
+	flex-direction: row;
 }
