@@ -67,11 +67,3 @@
 	display: flex;
 	flex-direction: row;
 }
-/* .generator__radio .input-group .generator__radio-inp .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
-	border-top-left-radius: none;
-	border-bottom-left-radius: none;
-} */
-/* .generator__radio .input-group > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback){
-	border-top-right-radius: unset;
-    border-bottom-right-radius: none;
-} */
