@@ -9,27 +9,50 @@
 .generator__gcode .btn{
 	padding: 0.5rem 0;
 }
-.generator__gcode{}
+.generator__gcode{
+	margin-bottom: 2rem;
+}
+
 .generator__inputs{
 	display: flex;
 	flex-direction: row;
+   align-items: center;
+	font-size: 1rem;
+}
+.generator__inputs .input-group{
+	flex: 1 1 60%;
+	display: flex;
 	flex-direction: row;
-   align-items: baseline;
 }
-.generator__inputs span{
-	margin-left: 1rem;
-	
+.generator__inputs-name{
+	flex: 1 1 40%;
+	padding-left: 1rem;
 }
-.input-group{
-	width: none;
+.input-group-text{
+	font-size: 0.9rem;
+}
+.form-control:focus{
+	box-shadow: none;
+}
+.form-control {
+	padding: 0.275rem 0.5rem;
+	font-size: 0.9rem;
+	color: #212529b3;
 }
 
+.generator__radio .input-group{
+	align-items: baseline;
+}
+.generator__radio .input-group >.input-group-text{
+	background-color: #fff;
+	border: none;
+}
 .generator__radio .form-check-input{
 	margin-right: 1rem;
 }
-.input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu){
-	border-top-right-radius: none; 
-   border-bottom-right-radius: none;
+.generator__radio .input-group:not(.has-validation) > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu){
+	border-top-right-radius: 8px; 
+   border-bottom-right-radius: 8px;
 }
 
 .generator__body{

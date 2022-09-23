@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './generator.css';
+import image from '../image/image62.png';
 
 export class Generator extends Component {
 	constructor(props) {
@@ -53,8 +54,8 @@ export class Generator extends Component {
 				</div>
 				<div className='generator__body'>
 					<div className='generator__body-inputs col-6'>
-						<div className='generator__inputs col-6'>
-							<div className="input-group mb-3">
+						<div className='generator__inputs  mb-3 '>
+							<div className="input-group">
 								<input
 									onChange={this.handleInputChange}
 									type="number"
@@ -64,10 +65,10 @@ export class Generator extends Component {
 								/>
 								<span className="input-group-text">mm</span>
 							</div>
-							<span className="">Length</span>
+							<span className="generator__inputs-name">Length</span>
 						</div>
-						<div className='generator__inputs col-6'>
-							<div className="input-group mb-3">
+						<div className='generator__inputs mb-3'>
+							<div className="input-group">
 								<input
 									onChange={this.handleInputChange}
 									type="number"
@@ -77,11 +78,11 @@ export class Generator extends Component {
 								/>
 								<span className="input-group-text">mm</span>
 							</div>
-							<span className="">Diameter</span>
+							<span className="generator__inputs-name">Diameter</span>
 						</div>
 
-						<div className='generator__inputs col-6'>
-							<div className="input-group mb-3">
+						<div className='generator__inputs mb-3'>
+							<div className="input-group">
 								<input
 									onChange={this.handleInputChange}
 									type="number"
@@ -91,11 +92,11 @@ export class Generator extends Component {
 								/>
 								<span className="input-group-text">deg</span>
 							</div>
-							<span className="">Angle</span>
+							<span className="generator__inputs-name">Angle</span>
 						</div>
 
-						<div className='generator__inputs col-6'>
-							<div className="input-group mb-3">
+						<div className='generator__inputs mb-3'>
+							<div className="input-group">
 								<input
 									onChange={this.handleInputChange}
 									type="number"
@@ -105,11 +106,11 @@ export class Generator extends Component {
 								/>
 								<span className="input-group-text">mm/min</span>
 							</div>
-							<span className="">Speed&nbsp;of&nbsp;fiber</span>
+							<span className="generator__inputs-name">Speed&nbsp;of&nbsp;fiber</span>
 						</div>
 
-						<div className='generator__inputs col-6'>
-							<div className="input-group mb-3">
+						<div className='generator__inputs mb-3'>
+							<div className="input-group">
 								<input
 									onChange={this.handleInputChange}
 									type="number"
@@ -119,11 +120,11 @@ export class Generator extends Component {
 								/>
 								<span className="input-group-text">mm</span>
 							</div>
-							<span className="">Fiber&nbsp;width</span>
+							<span className="generator__inputs-name">Fiber&nbsp;width</span>
 						</div>
 
-						<div className='generator__inputs col-6'>
-							<div className="input-group mb-3">
+						<div className='generator__inputs mb-3'>
+							<div className="input-group ">
 								<input
 									onChange={this.handleInputChange}
 									type="number"
@@ -132,11 +133,11 @@ export class Generator extends Component {
 									className="form-control"
 								/>
 							</div>
-							<span className="">CountOfExtraLoops</span>
+							<span className="generator__inputs-name">Count Of Extra Loops</span>
 						</div>
 
-						<div className='generator__radio col-6'>
-							<div className="input-group mb-3">
+						<div className='generator__radio mb-3'>
+							<div className="input-group">
 								<input
 									class="form-check-input"
 									type="radio"
@@ -157,8 +158,8 @@ export class Generator extends Component {
 							</div>
 						</div>
 
-						<div className='generator__radio col-6'>
-							<div className="input-group mb-3">
+						<div className='generator__radio mb-3'>
+							<div className="input-group">
 								<input
 									class="form-check-input"
 									type="radio"
@@ -179,7 +180,9 @@ export class Generator extends Component {
 							</div>
 						</div>
 					</div>
-					<div className='generator__body-imgs col-6'></div>
+					<div className='generator__body-imgs col-6'>
+						<img src={image}></img>
+					</div>
 				</div>
 
 				<div className='generator__gcode'>
