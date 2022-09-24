@@ -18,6 +18,6 @@
 
 		public double CountOfFullLoops { get; set; }
 
-		public double UseLoops { get; set; }
+		public int UseLoops { get; set; }
 	}
 }

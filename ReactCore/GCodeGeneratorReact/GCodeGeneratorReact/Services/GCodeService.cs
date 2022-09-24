@@ -27,7 +27,9 @@ namespace GCodeGeneratorReact.Services
 
 			var Fy = settings.FullRoundSteps * F_forMove / Math.Sqrt(settings.FullRoundSteps * settings.FullRoundSteps + s * s);
 
-			var angleAddition = (2 * (dto.FiberWidth / dto.Diameter) * (180 / Math.PI));
+			var pseudoFiberWidth = dto.FiberWidth / Math.Sin((Math.PI / 180) * dto.Angle);
+
+			var angleAddition = (2 * (pseudoFiberWidth / dto.Diameter) * (180 / Math.PI));
 
 			var fullRoundRotation = rotation * 2;
 
@@ -35,17 +37,27 @@ namespace GCodeGeneratorReact.Services
 
 			var addition = Math.Round(countOfLoops) - countOfLoops;
 
+			var circleWithAdditional = ((((1 + dto.CountOfExtraLoop) + addition) * 360 + angleAddition) * settings.FullRoundSteps) / 360;
+			var invX = settings.XInversion ? -1 : 1;
+			var invY = settings.YInversion ? -1 : 1;
+
 
 			await using var file = new StreamWriter(filePath, false);
 			await file.WriteLineAsync(MandatoryPreScript);
 			await file.WriteLineAsync(settings.PreScript);
+			await file.WriteLineAsync($"G01 Y-{settings.FullRoundSteps * 2} F{Fy:f3}");
 
-			for (int i = 0; i < 10; i++)
+			var countOfRepeatForFull = Math.Round(360 / angleAddition + 0.5);
+
+			var countOfRepeats = (dto.UseLoops == 1) ? dto.CountOfLoops : (countOfRepeatForFull * dto.CountOfFullLoops);
+
+			for (int i = 0; i < countOfRepeats; i++)
 			{
-				await file.WriteLineAsync($"G01 X{dto.Length} Y-{rotation:.3f} F{F_forMove:.3f}");
-				await file.WriteLineAsync($"G01 Y-{2 * settings.FullRoundSteps:.3f} F{Fy:.3f}");
-				await file.WriteLineAsync($"G01 X-{dto.Length} Y-{rotation:.3f} F{F_forMove:.3f}");
-				await file.WriteLineAsync($"G01 Y-{(((2 * 360 + addition * 360 + angleAddition) * settings.FullRoundSteps) / 360):.3f} F{Fy:.3f}");
+				await file.WriteLineAsync();
+				await file.WriteLineAsync($"G01 X{invX * dto.Length} Y{invY * rotation:f3} F{F_forMove:f3}");
+				await file.WriteLineAsync($"G01 Y{invY * (1 + dto.CountOfExtraLoop) * settings.FullRoundSteps:f3} F{Fy:f3}");
+				await file.WriteLineAsync($"G01 X-{invX * dto.Length} Y{invY * rotation:f3} F{F_forMove:f3}");
+				await file.WriteLineAsync($"G01 Y{invY * circleWithAdditional:f3} F{Fy:f3}");
 				lineCount += 4;
 			}
 

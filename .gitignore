@@ -48,3 +48,6 @@ Thumbs.db
 *.mov
 *.wmv
 
+ReactCore/GCodeGeneratorReact/obj/*
+
+ReactCore/GCodeGeneratorReact/.vs/*
