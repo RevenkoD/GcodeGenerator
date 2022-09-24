@@ -51,3 +51,4 @@ Thumbs.db
 ReactCore/GCodeGeneratorReact/obj/*
 
 ReactCore/GCodeGeneratorReact/.vs/*
+ReactCore/GCodeGeneratorReact/bin/*
