@@ -45,7 +45,7 @@ namespace GCodeGeneratorReact.Services
 			await using var file = new StreamWriter(filePath, false);
 			await file.WriteLineAsync(MandatoryPreScript);
 			await file.WriteLineAsync(settings.PreScript);
-			await file.WriteLineAsync($"G01 Y-{settings.FullRoundSteps * 2} F{Fy:f3}");
+			await file.WriteLineAsync($"G01 Y{invY * settings.FullRoundSteps * 2} F{Fy:f3}");
 
 			var countOfRepeatForFull = Math.Round(360 / angleAddition + 0.5);
 

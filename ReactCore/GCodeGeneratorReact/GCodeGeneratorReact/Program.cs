@@ -2,6 +2,8 @@ using ElectronNET.API;
 using ElectronNET.API.Entities;
 using GCodeGeneratorReact.Interfaces;
 using GCodeGeneratorReact.Services;
+using Microsoft.AspNetCore.Localization;
+using System.Globalization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,24 @@ builder.Services.AddControllersWithViews();
 builder.WebHost.UseElectron(args);
 
 var app = builder.Build();
+var defaultDateCulture = "en-US";
+var ci = new CultureInfo(defaultDateCulture);
+ci.NumberFormat.NumberDecimalSeparator = ".";
+ci.NumberFormat.CurrencyDecimalSeparator = ".";
+
+// Configure the Localization middleware
+app.UseRequestLocalization(new RequestLocalizationOptions
+{
+	DefaultRequestCulture = new RequestCulture(ci),
+	SupportedCultures = new List<CultureInfo>
+	{
+		ci,
+	},
+	SupportedUICultures = new List<CultureInfo>
+	{
+		ci,
+	}
+});
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
